@@ -1,4 +1,5 @@
-FROM balenalib/raspberrypi4-64-python:3.9-latest-run as run
+ARG python_version=3.9
+FROM balenalib/raspberrypi4-64-python:${python_version}-latest-run as run
 
 # Add piwheels repo for greater chance of hitting a precompiled wheel
 # https://www.piwheels.org/

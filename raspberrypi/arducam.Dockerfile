@@ -1,10 +1,5 @@
-FROM balenalib/raspberrypi4-64-python:3.9-latest-build as build
-
-# TODO: any additional wheels can be built here.
-
-FROM balenalib/raspberrypi4-64-python:3.9-latest-run as run
-
-WORKDIR /opt/arducam
+ARG python_version=3.9
+FROM chi-edge/raspberrypi-ipython:python-${python_version}
 
 RUN install_packages \
   libusb-1.0.0
@@ -16,6 +11,3 @@ RUN install_packages \
 RUN printf "[global]\nextra-index-url=https://www.piwheels.org/simple" >/etc/pip.conf
 RUN pip install flask opencv-python-headless
 
-VOLUME ["/out"]
-COPY app.py .
-COPY example.py .
