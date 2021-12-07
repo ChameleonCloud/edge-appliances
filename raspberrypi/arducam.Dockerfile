@@ -1,5 +1,7 @@
+ARG docker_registry=
+ARG namespace=
 ARG python_version=3.9
-FROM chi-edge/raspberrypi-ipython:python-${python_version}
+FROM ${docker_registry}${namespace}/raspberrypi-ipython:python-${python_version}
 
 RUN install_packages \
   libusb-1.0.0
