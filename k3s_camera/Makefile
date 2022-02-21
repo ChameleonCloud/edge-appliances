@@ -1,5 +1,5 @@
-build: firmware
+build: firmware-master
 	docker build -t camera_test .
 
-firmware:
-	git clone git@github.com:raspberrypi/firmware.git
+firmware-master:
+	curl -L https://github.com/raspberrypi/firmware/archive/master.tar.gz | tar xz
