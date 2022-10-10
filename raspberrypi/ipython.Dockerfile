@@ -1,6 +1,8 @@
 ARG python_version=3.9
 FROM balenalib/raspberrypi4-64-python:${python_version}-latest-run as run
 
+RUN install_packages gcc python3-dev
+
 # Add piwheels repo for greater chance of hitting a precompiled wheel
 # https://www.piwheels.org/
 RUN printf "[global]\nextra-index-url=https://www.piwheels.org/simple" >/etc/pip.conf
